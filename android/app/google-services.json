@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "107854241823",
+    "project_id": "dw1-filmes",
+    "storage_bucket": "dw1-filmes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107854241823:android:b65a6a382110b260cdf52a",
+        "android_client_info": {
+          "package_name": "br.com.hkprogrammer.app_filmes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107854241823-hqgvndulpmkin3aftdlfp7u42tmbfak9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.hkprogrammer.app_filmes",
+            "certificate_hash": "2b31627ae33b84cec63b36bfea51c345b82ae5c0"
+          }
+        },
+        {
+          "client_id": "107854241823-iff9958491vslpd9ccpqbbhqm5bal69q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrBrKdScBaXgmcTCe08PHAz_YNbIlWcgI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107854241823-iff9958491vslpd9ccpqbbhqm5bal69q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
