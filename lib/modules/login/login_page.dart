@@ -39,7 +39,7 @@ class LoginPage extends GetView<LoginController> {
                     ),
                     Buttons.Google,
                     text: 'Login com o google',
-                    onPressed: () => controller.login(),
+                    onPressed: () async => await controller.login(),
                   ),
                 )
               ],
