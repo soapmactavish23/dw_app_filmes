@@ -1,3 +1,4 @@
+import 'package:app_filmes/modules/login/login_module.dart';
 import 'package:app_filmes/modules/splash/splash_module.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      getPages: [...SplashModule().routers],
+      getPages: [
+        ...SplashModule().routers,
+        ...LoginModule().routers,
+      ],
     );
   }
 }
