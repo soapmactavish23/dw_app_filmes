@@ -8,10 +8,9 @@ class AuthService extends GetxService {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       this.user = user;
       if (user == null) {
-        //TODO: Modificar aqui ao chegar em casa
-        Get.offAllNamed('/home');
-      } else {
         Get.offAllNamed('/login');
+      } else {
+        Get.offAllNamed('/home');
       }
     });
   }

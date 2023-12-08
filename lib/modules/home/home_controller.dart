@@ -1,14 +1,14 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:app_filmes/services/login/login_service.dart';
+import 'package:app_filmes/services/login/login_service_impl.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   static const NAVIGATOR_KEY = 1;
   static const INDEX_PAGE_KEY = 2;
-  final LoginService _loginService;
+  final LoginServiceImpl _loginService;
 
-  HomeController({required LoginService loginService})
+  HomeController({required LoginServiceImpl loginService})
       : _loginService = loginService;
 
   final _pages = ['/movies', '/favorites'];
