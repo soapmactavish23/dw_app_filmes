@@ -14,21 +14,24 @@ class FilterTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(5),
-      padding: const EdgeInsets.all(5),
-      constraints: const BoxConstraints(minHeight: 30, minWidth: 100),
-      decoration: BoxDecoration(
-        color: selected ? context.themeRed : Colors.black,
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Align(
-        alignment: Alignment.center,
-        child: Text(
-          genresModel.name,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 14,
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        margin: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
+        constraints: const BoxConstraints(minHeight: 30, minWidth: 100),
+        decoration: BoxDecoration(
+          color: selected ? context.themeRed : Colors.black,
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            genresModel.name,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+            ),
           ),
         ),
       ),
