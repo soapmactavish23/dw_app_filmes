@@ -1,9 +1,13 @@
 import 'package:app_filmes/application/ui/widgets/movies_card.dart';
+import 'package:app_filmes/models/movie_model.dart';
+import 'package:app_filmes/modules/movies/movies_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class MoviesGroup extends StatelessWidget {
+class MoviesGroup extends GetView<MoviesController> {
   final String title;
-  const MoviesGroup({super.key, required this.title});
+  final List<MovieModel> movies;
+  const MoviesGroup({super.key, required this.title, required this.movies});
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +28,18 @@ class MoviesGroup extends StatelessWidget {
           ),
           SizedBox(
             height: 280,
-            child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (_, index) {
-                return const MoviesCard();
-              },
-            ),
+            child: Obx(() {
+              return ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: movies.length,
+                itemBuilder: (_, index) {
+                  return MoviesCard(
+                    movie: movies[index],
+                  );
+                },
+              );
+            }),
           ),
         ],
       ),

@@ -1,8 +1,17 @@
-import 'package:app_filmes/application/ui/filmes_app_icons_icons.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import 'package:app_filmes/application/ui/filmes_app_icons_icons.dart';
+import 'package:app_filmes/models/movie_model.dart';
+import 'package:intl/intl.dart';
+
 class MoviesCard extends StatelessWidget {
-  const MoviesCard({super.key});
+  final dateFormat = DateFormat('y');
+  final MovieModel movie;
+  MoviesCard({
+    Key? key,
+    required this.movie,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +31,7 @@ class MoviesCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   clipBehavior: Clip.antiAlias,
                   child: Image.network(
-                    'https://musicart.xboxlive.com/7/7f365100-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080',
+                    movie.posterPath,
                     width: 148,
                     height: 184,
                     fit: BoxFit.cover,
@@ -32,18 +41,18 @@ class MoviesCard extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Text(
-                'Coringa',
-                style: TextStyle(
+              Text(
+                movie.title,
+                style: const TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 12,
                 ),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
               ),
-              const Text(
-                '2019',
-                style: TextStyle(
+              Text(
+                dateFormat.format(DateTime.parse(movie.releaseDate)),
+                style: const TextStyle(
                     fontWeight: FontWeight.w300,
                     fontSize: 11,
                     color: Colors.grey),
