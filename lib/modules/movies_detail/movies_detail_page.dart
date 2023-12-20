@@ -16,9 +16,13 @@ class MoviesDetailPage extends GetView<MoviesDetailController> {
         body: Obx(
           () => SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 MovieDetailHeader(
                   movie: controller.movie.value,
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 MovieDetailContent(
                   movie: controller.movie.value,

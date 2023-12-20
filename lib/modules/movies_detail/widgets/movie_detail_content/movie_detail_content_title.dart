@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:app_filmes/application/ui/theme_extension.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:app_filmes/models/movie_detail_model.dart';
 
 class MovieDetailContentTitle extends StatelessWidget {
@@ -24,6 +25,19 @@ class MovieDetailContentTitle extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
+          RatingStars(
+            value: (movie?.starts ?? 1) / 2,
+            valueLabelVisibility: false,
+            starColor: context.themeOrange,
+            starSize: 14,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            movie?.genres.map((e) => e.name).join(', ') ?? '',
+            style: TextStyle(fontSize: 11, color: context.themeGrey),
+          )
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:app_filmes/models/movie_detail_model.dart';
+import 'package:app_filmes/modules/movies_detail/widgets/movie_detail_content/movie_detail_content_credit.dart';
 import 'package:app_filmes/modules/movies_detail/widgets/movie_detail_content/movie_detail_content_title.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,10 @@ class MovieDetailContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [MovieDetailContentTitle(movie: movie)],
+      children: [
+        MovieDetailContentTitle(movie: movie),
+        MovieDetailContentCredit(movie: movie)
+      ],
     );
   }
 }
