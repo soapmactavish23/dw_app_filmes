@@ -4,9 +4,9 @@ import 'dart:convert';
 import 'package:app_filmes/models/cast_model.dart';
 import 'package:app_filmes/models/genres_model.dart';
 
-class MovieDetailMode {
+class MovieDetailModel {
   final String title;
-  final double starts;
+  final int starts;
   final List<GenresModel> genres;
   final List<String> urlImages;
   final DateTime releaseDate;
@@ -14,7 +14,7 @@ class MovieDetailMode {
   final List<String> productionCompanies;
   final String originalLanguage;
   final List<CastModel> cast;
-  MovieDetailMode({
+  MovieDetailModel({
     required this.title,
     required this.starts,
     required this.genres,
@@ -40,7 +40,7 @@ class MovieDetailMode {
     };
   }
 
-  factory MovieDetailMode.fromMap(Map<String, dynamic> map) {
+  factory MovieDetailModel.fromMap(Map<String, dynamic> map) {
     var urlImagesPosters = map['images']['posters'];
     var urlImages = urlImagesPosters
             ?.map<String>(
@@ -49,22 +49,24 @@ class MovieDetailMode {
             .toList() ??
         [];
 
-    return MovieDetailMode(
+    return MovieDetailModel(
       title: map['title'] as String,
-      starts: map['vote_count'] as double,
+      starts: map['vote_count'] as int,
       urlImages: urlImages,
       genres: List<GenresModel>.from(
-        (map['genres'] as List<int>).map<GenresModel>(
+        (map['genres'] as List<dynamic>).map<GenresModel>(
           (x) => GenresModel.fromMap(x as Map<String, dynamic>),
         ),
       ),
-      releaseDate: DateTime.parse(map['releaseDate']),
+      releaseDate: DateTime.parse(map['release_date']),
       overview: map['overview'] as String,
       productionCompanies:
-          List<String>.from((map['productionCompanies'] as List<String>)),
-      originalLanguage: map['originalLanguage'] as String,
+          List<dynamic>.from((map['production_companies'] as List<dynamic>))
+              .map<String>((e) => e['name'])
+              .toList(),
+      originalLanguage: map['original_language'] as String,
       cast: List<CastModel>.from(
-        (map['cast'] as List<int>).map<CastModel>(
+        map['credits']['cast']?.map<CastModel>(
           (x) => CastModel.fromMap(x as Map<String, dynamic>),
         ),
       ),
@@ -73,6 +75,6 @@ class MovieDetailMode {
 
   String toJson() => json.encode(toMap());
 
-  factory MovieDetailMode.fromJson(String source) =>
-      MovieDetailMode.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory MovieDetailModel.fromJson(String source) =>
+      MovieDetailModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }
