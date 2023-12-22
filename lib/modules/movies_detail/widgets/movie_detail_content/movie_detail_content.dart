@@ -1,5 +1,7 @@
 import 'package:app_filmes/models/movie_detail_model.dart';
 import 'package:app_filmes/modules/movies_detail/widgets/movie_detail_content/movie_detail_content_credit.dart';
+import 'package:app_filmes/modules/movies_detail/widgets/movie_detail_content/movie_detail_content_main_cast.dart';
+import 'package:app_filmes/modules/movies_detail/widgets/movie_detail_content/movie_detail_content_production_companies.dart';
 import 'package:app_filmes/modules/movies_detail/widgets/movie_detail_content/movie_detail_content_title.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,9 @@ class MovieDetailContent extends StatelessWidget {
     return Column(
       children: [
         MovieDetailContentTitle(movie: movie),
-        MovieDetailContentCredit(movie: movie)
+        MovieDetailContentCredit(movie: movie),
+        MovieDetailContentProductionCompanies(movie: movie),
+        MovieDetailContentMainCast(movie: movie),
       ],
     );
   }
