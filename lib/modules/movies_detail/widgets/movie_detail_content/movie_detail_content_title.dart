@@ -20,7 +20,11 @@ class MovieDetailContentTitle extends StatelessWidget {
         children: [
           Text(
             movie?.title ?? '',
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+            style: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w600,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
           const SizedBox(
             height: 10,

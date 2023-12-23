@@ -34,8 +34,10 @@ class MoviesGroup extends GetView<MoviesController> {
                 scrollDirection: Axis.horizontal,
                 itemCount: movies.length,
                 itemBuilder: (_, index) {
+                  var movie = movies[index];
                   return MoviesCard(
-                    movie: movies[index],
+                    movie: movie,
+                    favoriteCallBack: () => controller.favoriteMovie(movie),
                   );
                 },
               );

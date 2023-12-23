@@ -8,14 +8,13 @@ class MovieModel {
   final String posterPath;
   final List<int> genres;
   final bool favorite;
-  MovieModel({
-    required this.id,
-    required this.title,
-    required this.releaseDate,
-    required this.posterPath,
-    required this.genres,
-    required this.favorite,
-  });
+  MovieModel(
+      {required this.id,
+      required this.title,
+      required this.releaseDate,
+      required this.posterPath,
+      required this.genres,
+      required this.favorite});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -33,7 +32,7 @@ class MovieModel {
       id: map['id'] as int,
       title: map['title'] as String,
       releaseDate: map['release_date'] as String,
-      posterPath: 'https://image.tmdb.org/t/p/w500${map['poster_path']}',
+      posterPath: map['poster_path'],
       genres: List<int>.from((map['genre_ids'] as List<dynamic>)),
       favorite: map['favorite'] ?? false,
     );
@@ -47,5 +46,21 @@ class MovieModel {
   @override
   String toString() {
     return 'MovieModel(id: $id, title: $title, releaseDate: $releaseDate, posterPath: $posterPath, genres: $genres, favorite: $favorite)';
+  }
+
+  MovieModel copyWith(
+      {int? id,
+      String? title,
+      String? releaseDate,
+      String? posterPath,
+      List<int>? genres,
+      bool? favorite}) {
+    return MovieModel(
+        id: id ?? this.id,
+        title: title ?? this.title,
+        releaseDate: releaseDate ?? this.releaseDate,
+        posterPath: posterPath ?? this.posterPath,
+        genres: genres ?? this.genres,
+        favorite: favorite ?? this.favorite);
   }
 }

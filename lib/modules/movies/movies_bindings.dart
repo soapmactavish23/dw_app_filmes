@@ -19,6 +19,7 @@ class MoviesBindings implements Bindings {
       () => MoviesController(
         genresService: Get.find(),
         moviesService: Get.find(),
+        authService: Get.find(),
       ),
     );
   }
