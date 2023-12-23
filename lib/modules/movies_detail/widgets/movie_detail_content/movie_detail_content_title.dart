@@ -33,7 +33,7 @@ class MovieDetailContentTitle extends StatelessWidget {
             value: (movie?.starts ?? 1) / 2,
             valueLabelVisibility: false,
             starColor: context.themeOrange,
-            starSize: 14,
+            starSize: 13,
           ),
           const SizedBox(
             height: 10,

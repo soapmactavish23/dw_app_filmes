@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       initialBinding: ApplicationBindings(),
+      debugShowCheckedModeBanner: false,
       theme: FilmesAppUiConfig.theme,
       getPages: [
         ...SplashModule().routers,
