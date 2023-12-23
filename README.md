@@ -45,7 +45,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## 📸 Screenshot
 
 <p float="left">
-	<img src="printscreen/img01.PNG" width="200">
+	<img src="printscreen/img01.png" width="200">
 	<img src="printscreen/img02.png" width="200">
 	
 </p>
